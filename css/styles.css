@@ -81,6 +81,9 @@ img { display: block; }
 .nav__action--contact { width: 128px; background: var(--mint); }
 .nav__action--contact:hover { opacity: 1; background: #d7ebd7; }
 
+/* Mobile-only green Contact button in the nav */
+.nav__cta { display: none; }
+
 /* ---------- Hero ---------- */
 .hero {
   display: flex;
@@ -288,3 +291,119 @@ img { display: block; }
 /* ---------- Footer ---------- */
 .footer { padding: 36px var(--gutter); }
 .footer p { font-size: 14px; line-height: 20px; white-space: nowrap; }
+
+/* =====================================================================
+   Mobile: Figma frame "Matai Security — Mobile" (390px)
+   ===================================================================== */
+@media (max-width: 767px) {
+  :root { --gutter: 24px; }
+
+  .heading-62,
+  .heading-72 { font-size: 36px; letter-spacing: -0.36px; }
+
+  /* Navigation: brand + green Contact on row 1, links on row 2 */
+  .nav {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding: 20px var(--gutter) 12px;
+  }
+  .brand__name { font-size: 28px; letter-spacing: 3.36px; }
+
+  .nav__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 48px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--acid);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .nav__links { flex-basis: 100%; gap: 24px; }
+  .nav__action {
+    height: 44px;
+    padding: 0;
+    line-height: 20px;
+  }
+  .nav__action--contact { display: none; }
+
+  /* Hero: headline, description, photo, full-width button */
+  .hero {
+    gap: 28px;
+    padding: 40px var(--gutter) 32px;
+  }
+  .hero__headline {
+    font-size: 44px;
+    line-height: 48px; /* Figma 1.1, rendered at 48px per line */
+    letter-spacing: -0.44px;
+  }
+  .hero__overview,
+  .hero__content { display: contents; }
+  .hero__description { order: 1; }
+  .hero__photo { order: 2; flex: none; width: 100%; height: 240px; }
+  .hero__photo-corner { width: 24px; height: 24px; }
+  .btn-primary { order: 3; width: 100%; font-size: 14px; }
+  .hero__arrow { display: none; }
+
+  /* Why choose us */
+  .why { gap: 28px; padding: 56px var(--gutter); }
+  .why__body { flex-direction: column; align-items: stretch; gap: 28px; }
+  .benefits { flex: none; gap: 4px; }
+  .benefit { height: 56px; padding: 0; font-size: 24px; }
+  .why__detail { flex: none; gap: 20px; }
+  .why__detail .body-large { font-size: 16px; line-height: 24px; }
+
+  /* Our services: every entry is a mint card */
+  .services { gap: 28px; padding: 0 var(--gutter) 56px; }
+  .service-index { gap: 12px; }
+  .service,
+  .service.is-active {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    align-items: start;
+    column-gap: 14px;
+    row-gap: 16px;
+    padding: 24px 16px;
+    background: var(--mint);
+  }
+  .service__title {
+    font-size: 25px;
+    line-height: 1.15;
+    letter-spacing: -0.75px;
+  }
+  .service__desc { grid-column: 1 / -1; }
+
+  /* About us: text then photo */
+  .about {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding: 0 var(--gutter) 56px;
+  }
+  .about__narrative { flex: none; gap: 28px; }
+  .about__visual { flex: none; height: 280px; }
+  .about__visual img { height: 100%; }
+
+  /* Contact */
+  .contact-wrap { padding: 0 16px; }
+  .contact {
+    gap: 24px;
+    padding: 36px var(--gutter);
+    border-radius: 20px;
+  }
+  .contact__heading { font-size: 40px; letter-spacing: -0.4px; }
+  .contact__arrow img { width: 48px; height: 48px; }
+  .contact__line {
+    height: auto;
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.66px;
+  }
+  .contact__line[href^="tel:"] { font-size: 26px; letter-spacing: -0.78px; }
+
+  .footer { padding: 28px var(--gutter); }
+}
