@@ -1,0 +1,290 @@
+/* Matai Security Group: desktop build from Figma frame "04 — Acid-green tactical" (1512px) */
+
+:root {
+  --ink: #101310;
+  --dark: #1b211b;
+  --mint: #e8f3e8;
+  --acid: #5ee85e;
+  --muted-light: #e5e7eb;
+  --white: #ffffff;
+
+  --gutter: 88px;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+
+/* ---------- Type styles ---------- */
+.body-large   { font-size: 18px; line-height: 28px; font-weight: 400; }
+.body-default { font-size: 16px; line-height: 24px; font-weight: 400; }
+
+.heading-62,
+.heading-72 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+.heading-62 { font-size: 62px; letter-spacing: -1.86px; }
+.heading-72 { font-size: 72px; letter-spacing: -2.16px; }
+
+/* ---------- Navigation ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px var(--gutter);
+  background: var(--white);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  white-space: nowrap;
+}
+.brand__name { font-size: 31px; font-weight: 400; letter-spacing: 3.72px; line-height: normal; }
+.brand__sub  { font-size: 10px; font-weight: 500; letter-spacing: 0.7px; line-height: normal; }
+
+.nav__links { display: flex; align-items: center; gap: 16px; }
+
+.nav__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: opacity .15s ease;
+}
+.nav__action:hover { opacity: .65; }
+.nav__action--contact { width: 128px; background: var(--mint); }
+.nav__action--contact:hover { opacity: 1; background: #d7ebd7; }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  padding: 56px var(--gutter) 88px;
+  background: var(--dark);
+  overflow: hidden;
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 112px;
+  line-height: 1.02;
+  letter-spacing: -5.6px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.hero__line { display: block; }
+.hero__line--accent { color: var(--mint); }
+
+.hero__overview { display: flex; align-items: flex-start; gap: 56px; }
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 0 0 410px;
+  padding-top: 24px;
+}
+.hero__description { font-size: 18px; line-height: 28px; color: var(--muted-light); }
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 48px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--acid);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: background .15s ease;
+}
+.btn-primary:hover { background: #4fd84f; }
+
+.hero__arrow { width: 100px; height: 100px; }
+
+.hero__photo {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 390px;
+  overflow: hidden;
+}
+/* Matches the Figma crop: image is 207% of frame height, offset -6.17% */
+.hero__photo-img {
+  position: absolute;
+  left: 0;
+  top: -6.17%;
+  width: 100%;
+  height: 207%;
+  max-width: none;
+}
+.hero__photo-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--mint);
+}
+
+/* ---------- Why choose us ---------- */
+.why {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 80px var(--gutter);
+}
+
+.why__body { display: flex; align-items: center; gap: 36px; }
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 420px;
+}
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: normal;
+  white-space: nowrap;
+}
+.benefit img { width: 28px; height: 28px; flex-shrink: 0; }
+
+.why__detail { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
+
+/* ---------- Our services ---------- */
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: var(--gutter);
+}
+
+.service-index { display: flex; flex-direction: column; }
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 36px 28px;
+  border-radius: 8px;
+  transition: background-color .2s ease;
+}
+.service img { width: 30px; height: 30px; flex-shrink: 0; }
+.service.is-active { background: var(--mint); }
+
+.service__title {
+  flex: 0 0 495px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 33px;
+  line-height: 1.08;
+  letter-spacing: -0.99px;
+}
+.service__desc { flex: 1 1 0; min-width: 0; font-size: 16px; line-height: 24px; }
+
+/* ---------- About us ---------- */
+.about {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 24px var(--gutter) 96px;
+}
+
+.about__narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 0 0 690px;
+}
+
+.about__visual {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 392px;
+  overflow: hidden;
+}
+/* Image is 450px tall inside a 392px frame, cropped at the bottom as in Figma */
+.about__visual img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* ---------- Contact ---------- */
+.contact-wrap { padding: 0 48px; scroll-margin-top: 24px; }
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 72px var(--gutter);
+  border-radius: 8px;
+  background: var(--dark);
+  color: var(--mint);
+}
+
+.contact__title { display: flex; align-items: center; justify-content: space-between; }
+.contact__title img { width: 90px; height: 90px; }
+
+.contact__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: -5px;
+  white-space: nowrap;
+}
+
+.contact__line {
+  display: block;
+  height: 59px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 46px;
+  line-height: normal;
+  letter-spacing: -1.38px;
+  transition: color .15s ease;
+}
+.contact__line:hover { color: var(--acid); }
+
+/* ---------- Footer ---------- */
+.footer { padding: 36px var(--gutter); }
+.footer p { font-size: 14px; line-height: 20px; white-space: nowrap; }
