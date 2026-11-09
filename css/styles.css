@@ -236,7 +236,8 @@ img { display: block; }
   transition: background-color .2s ease;
 }
 .service img { width: 30px; height: 30px; flex-shrink: 0; }
-.service.is-active { background: var(--mint); }
+/* Desktop: a row only highlights while the cursor is over it */
+.service:hover { background: var(--mint); }
 
 .service__title {
   flex: 0 0 495px;
@@ -423,8 +424,7 @@ img { display: block; }
   /* Our services: every entry is a mint card */
   .services { gap: 28px; padding: 0 var(--gutter) 56px; }
   .service-index { gap: 12px; }
-  .service,
-  .service.is-active {
+  .service {
     display: grid;
     grid-template-columns: 30px 1fr;
     align-items: start;
