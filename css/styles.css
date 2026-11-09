@@ -71,9 +71,9 @@ img { display: block; }
   min-width: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 98px;
-  line-height: 110px; /* Figma 1.12 */
-  letter-spacing: -0.98px;
+  font-size: 92px;
+  line-height: 103px; /* Figma 1.12 */
+  letter-spacing: -0.92px;
   text-transform: uppercase;
   color: var(--white);
 }
