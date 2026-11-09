@@ -10,13 +10,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="top">
+
+  <!-- Hero (desktop: sits above the navigation) -->
+  <section class="hero">
+    <div class="hero__top">
+      <h1 class="hero__headline">
+        <span class="hero__line">Calm Presence.</span>
+        <span class="hero__line hero__line--accent">Clear Protection.</span>
+      </h1>
+      <div class="crop hero__logo">
+        <img src="assets/images/matai-logo.png" alt="Matai Security Group Ltd: Professional. Reliable. Trusted.">
+      </div>
+    </div>
+    <div class="hero__overview">
+      <div class="hero__content">
+        <p class="hero__description">Professional security solutions for businesses, commercial properties and venues across the UK.</p>
+        <a href="#contact" class="btn-primary">Contact us</a>
+      </div>
+      <div class="hero__photo">
+        <img src="assets/images/hero-officer.jpg" alt="Security officer at commercial premises" class="hero__photo-img">      </div>
+    </div>
+  </section>
 
   <!-- Navigation -->
   <header class="nav">
-    <a href="#top" class="brand" aria-label="Matai Security Group, home">
-      <span class="brand__name">MATAI</span>
-      <span class="brand__sub">Security Group</span>
+    <a href="#top" class="brand" aria-label="Matai Security Group, back to top">
+      <span class="logo" aria-hidden="true">
+        <span class="crop logo__mark"><img src="assets/images/matai-logo.png" alt=""></span>
+        <span class="crop logo__word"><img src="assets/images/matai-logo.png" alt=""></span>
+      </span>
     </a>
     <a href="#contact" class="nav__cta">Contact</a>
     <nav class="nav__links" aria-label="Main">
@@ -26,26 +49,7 @@
     </nav>
   </header>
 
-  <main id="top">
-
-    <!-- Hero -->
-    <section class="hero">
-      <h1 class="hero__headline">
-        <span class="hero__line">Calm Presence.</span>
-        <span class="hero__line hero__line--accent">Clear Protection.</span>
-      </h1>
-      <div class="hero__overview">
-        <div class="hero__content">
-          <p class="hero__description">Professional security solutions for businesses, commercial properties and venues across the UK.</p>
-          <a href="#contact" class="btn-primary">Contact us</a>
-          <img src="assets/icons/arrow-down-right.svg" width="100" height="100" alt="" class="hero__arrow">
-        </div>
-        <div class="hero__photo">
-          <img src="assets/images/hero-officer.jpg" alt="Security officer at commercial premises" class="hero__photo-img">
-          <span class="hero__photo-corner" aria-hidden="true"></span>
-        </div>
-      </div>
-    </section>
+  <main>
 
     <!-- Why choose us -->
     <section class="why">
@@ -66,10 +70,10 @@
           </li>
         </ul>
         <div class="why__detail">
-          <p class="body-large">We understand the importance of protecting your people, premises and reputation.</p>
-          <p class="body-default">We provide professional security solutions tailored to the needs of businesses, commercial properties and venues. From front-desk security and manned guarding to door supervision, our focus is on reliability, professional conduct and excellent customer service.</p>
-          <p class="body-default">We believe effective security goes beyond protection. It means having dependable officers, clear communication and a professional approach you can count on.</p>
-          <p class="body-default">Our commitment is to understand your requirements, deliver consistent standards and build long-term relationships based on trust.</p>
+          <p>We understand the importance of protecting your people, premises and reputation.</p>
+          <p>We provide professional security solutions tailored to the needs of businesses, commercial properties and venues. From front-desk security and manned guarding to door supervision, our focus is on reliability, professional conduct and excellent customer service.</p>
+          <p>We believe effective security goes beyond protection. It means having dependable officers, clear communication and a professional approach you can count on.</p>
+          <p>Our commitment is to understand your requirements, deliver consistent standards and build long-term relationships based on trust.</p>
         </div>
       </div>
     </section>
@@ -124,13 +128,15 @@
       <section class="contact">
         <div class="contact__title">
           <h2 class="contact__heading">CONTACT</h2>
-          <picture class="contact__arrow">
-            <source media="(max-width: 767px)" srcset="assets/icons/contact-arrow-mobile.svg">
-            <img src="assets/icons/arrow-up-right.svg" width="90" height="90" alt="">
-          </picture>
         </div>
-        <a href="mailto:sabit@mataisecurity.com.uk" class="contact__line">sabit@mataisecurity.com.uk</a>
-        <a href="tel:+4412344321" class="contact__line">+44 1234 4321</a>
+        <a href="mailto:info@mataisecurity.com.uk" class="contact__line">
+          <span class="contact__icon" aria-hidden="true"><img src="assets/icons/envelope.svg" width="36" height="28" alt=""></span>
+          <span class="contact__text">info@mataisecurity.com.uk</span>
+        </a>
+        <a href="tel:+4412344321" class="contact__line contact__line--phone">
+          <span class="contact__icon" aria-hidden="true"><img src="assets/icons/telephone-handset.svg" width="35" height="35" alt=""></span>
+          <span class="contact__text">+44 1234 4321</span>
+        </a>
       </section>
     </div>
 
@@ -139,6 +145,7 @@
   <!-- Footer -->
   <footer class="footer">
     <p>Matai Security Group Ltd</p>
+    <p class="footer__address">The Department Store Studios, 19 Bellefields Rd, London SW9 9UH</p>
   </footer>
 
   <script src="js/main.js"></script>

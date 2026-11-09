@@ -1,14 +1,18 @@
-/* Matai Security Group: desktop build from Figma frame "04 — Acid-green tactical" (1512px) */
+/* Matai Security Group
+   Desktop: Figma frame "04 — Acid-green tactical" (1512px)
+   Mobile:  Figma frame "Matai Security — Mobile" (390px), see media query at the bottom */
 
 :root {
   --ink: #101310;
   --dark: #1b211b;
   --mint: #e8f3e8;
   --acid: #5ee85e;
+  --forest: #335945;
   --muted-light: #e5e7eb;
   --white: #ffffff;
 
-  --gutter: 88px;
+  --gutter: 80px;      /* sections below the hero */
+  --nav-gutter: 88px;  /* navigation + footer */
   --font-body: "Inter", system-ui, sans-serif;
   --font-display: "Space Grotesk", system-ui, sans-serif;
 }
@@ -32,6 +36,10 @@ ul { list-style: none; }
 a { color: inherit; text-decoration: none; }
 img { display: block; }
 
+/* Image crop helper: matches Figma's cropped image fills */
+.crop { position: relative; display: block; overflow: hidden; flex-shrink: 0; }
+.crop > img { position: absolute; max-width: none; }
+
 /* ---------- Type styles ---------- */
 .body-large   { font-size: 18px; line-height: 28px; font-weight: 400; }
 .body-default { font-size: 16px; line-height: 24px; font-weight: 400; }
@@ -43,68 +51,37 @@ img { display: block; }
   line-height: 1.08;
   text-transform: uppercase;
 }
-.heading-62 { font-size: 62px; letter-spacing: -1.86px; }
-.heading-72 { font-size: 72px; letter-spacing: -2.16px; }
-
-/* ---------- Navigation ---------- */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 26px var(--gutter);
-  background: var(--white);
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  white-space: nowrap;
-}
-.brand__name { font-size: 31px; font-weight: 400; letter-spacing: 3.72px; line-height: normal; }
-.brand__sub  { font-size: 10px; font-weight: 500; letter-spacing: 0.7px; line-height: normal; }
-
-.nav__links { display: flex; align-items: center; gap: 16px; }
-
-.nav__action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.3;
-  white-space: nowrap;
-  transition: opacity .15s ease;
-}
-.nav__action:hover { opacity: .65; }
-.nav__action--contact { width: 128px; background: var(--mint); }
-.nav__action--contact:hover { opacity: 1; background: #d7ebd7; }
-
-/* Mobile-only green Contact button in the nav */
-.nav__cta { display: none; }
+.heading-62 { font-size: 62px; letter-spacing: -0.62px; }
+.heading-72 { font-size: 72px; letter-spacing: -0.72px; }
 
 /* ---------- Hero ---------- */
 .hero {
   display: flex;
   flex-direction: column;
   gap: 44px;
-  padding: 56px var(--gutter) 88px;
+  padding: 112px;
   background: var(--dark);
   overflow: hidden;
 }
 
+.hero__top { display: flex; align-items: center; gap: 44px; }
+
 .hero__headline {
+  flex: 1 1 0;
+  min-width: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 112px;
-  line-height: 1.02;
-  letter-spacing: -5.6px;
+  font-size: 98px;
+  line-height: 110px; /* Figma 1.12 */
+  letter-spacing: -0.98px;
   text-transform: uppercase;
   color: var(--white);
 }
 .hero__line { display: block; }
 .hero__line--accent { color: var(--mint); }
+
+.hero__logo { width: 180px; height: 155px; }
+.hero__logo > img { width: 125.63%; height: 315.23%; left: -12.62%; top: -101.38%; }
 
 .hero__overview { display: flex; align-items: flex-start; gap: 56px; }
 
@@ -135,31 +112,74 @@ img { display: block; }
 }
 .btn-primary:hover { background: #4fd84f; }
 
-.hero__arrow { width: 100px; height: 100px; }
-
 .hero__photo {
   position: relative;
   flex: 1 1 0;
   min-width: 0;
   height: 390px;
+  border-radius: 12px;
   overflow: hidden;
 }
-/* Matches the Figma crop: image is 207% of frame height, offset -6.17% */
-.hero__photo-img {
-  position: absolute;
-  left: 0;
-  top: -6.17%;
-  width: 100%;
-  height: 207%;
-  max-width: none;
+.hero__photo-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Navigation ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px var(--nav-gutter);
+  background: var(--white);
 }
-.hero__photo-corner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  background: var(--mint);
+
+.brand { display: block; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8.276px;
+  padding: 6.207px 10.345px;
+  border-radius: 6.207px;
+  background: var(--ink);
+}
+.logo__mark { width: 47.586px; height: 47.586px; }
+.logo__mark > img { width: 207.46%; height: 448.26%; left: -53.86%; top: -144.17%; }
+.logo__word { width: 93.103px; height: 23.276px; }
+.logo__word > img { width: 125.63%; height: 1085.79%; left: -12.62%; top: -593.66%; }
+
+.nav__links { display: flex; align-items: center; gap: 16px; }
+
+.nav__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: opacity .15s ease, background .15s ease;
+}
+.nav__action:hover { opacity: .65; }
+.nav__action--contact {
+  width: 128px;
+  border-radius: 8px;
+  background: var(--acid);
+  font-weight: 500;
+}
+.nav__action--contact:hover { opacity: 1; background: #4fd84f; }
+
+/* Mobile-only green Contact button in the nav */
+.nav__cta { display: none; }
+
+/* Desktop: nav sticks to the top once the hero has scrolled past.
+   scroll-padding keeps anchor links from landing under it. */
+@media (min-width: 768px) {
+  html { scroll-padding-top: 112px; }
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 }
 
 /* ---------- Why choose us ---------- */
@@ -167,7 +187,7 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   gap: 36px;
-  padding: 80px var(--gutter);
+  padding: var(--gutter);
 }
 
 .why__body { display: flex; align-items: center; gap: 36px; }
@@ -176,6 +196,8 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   flex: 0 0 420px;
+  height: 243px;
+  overflow: hidden;
 }
 .benefit {
   display: flex;
@@ -184,20 +206,23 @@ img { display: block; }
   padding: 24px 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 26px;
+  font-size: 30px;
   line-height: normal;
+  color: var(--forest);
   white-space: nowrap;
 }
 .benefit img { width: 28px; height: 28px; flex-shrink: 0; }
 
-.why__detail { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
+.why__detail { flex: 1 1 0; min-width: 0; }
+.why__detail p { font-size: 18px; line-height: 28px; }
+.why__detail p + p { margin-top: 14px; }
 
 /* ---------- Our services ---------- */
 .services {
   display: flex;
   flex-direction: column;
   gap: 48px;
-  padding: var(--gutter);
+  padding: 88px var(--gutter);
 }
 
 .service-index { display: flex; flex-direction: column; }
@@ -207,7 +232,7 @@ img { display: block; }
   align-items: center;
   gap: 32px;
   padding: 36px 28px;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: background-color .2s ease;
 }
 .service img { width: 30px; height: 30px; flex-shrink: 0; }
@@ -242,6 +267,7 @@ img { display: block; }
   flex: 1 1 0;
   min-width: 0;
   height: 392px;
+  border-radius: 12px;
   overflow: hidden;
 }
 /* Image is 450px tall inside a 392px frame, cropped at the bottom as in Figma */
@@ -252,62 +278,88 @@ img { display: block; }
 }
 
 /* ---------- Contact ---------- */
-.contact-wrap { padding: 0 48px; scroll-margin-top: 24px; }
+.contact-wrap { padding: 0 var(--gutter); scroll-margin-top: 24px; }
 
 .contact {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 72px var(--gutter);
-  border-radius: 8px;
+  padding: 72px 88px;
+  border-radius: 20px;
   background: var(--dark);
   color: var(--mint);
 }
 
 .contact__title { display: flex; align-items: center; justify-content: space-between; }
-.contact__title img { width: 90px; height: 90px; }
 
 .contact__heading {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 100px;
   line-height: 1;
-  letter-spacing: -5px;
+  letter-spacing: -1px;
   white-space: nowrap;
 }
 
 .contact__line {
-  display: block;
-  height: 59px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  align-self: flex-start;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 46px;
   line-height: normal;
   letter-spacing: -1.38px;
+  white-space: nowrap;
   transition: color .15s ease;
 }
 .contact__line:hover { color: var(--acid); }
 
+.contact__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
 /* ---------- Footer ---------- */
-.footer { padding: 36px var(--gutter); }
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px var(--nav-gutter);
+}
 .footer p { font-size: 14px; line-height: 20px; white-space: nowrap; }
 
 /* =====================================================================
    Mobile: Figma frame "Matai Security — Mobile" (390px)
    ===================================================================== */
 @media (max-width: 767px) {
-  :root { --gutter: 24px; }
+  :root { --gutter: 24px; --nav-gutter: 24px; }
+
+  /* Navigation comes first on mobile */
+  body { display: flex; flex-direction: column; }
+  .nav { order: -1; }
 
   .heading-62,
   .heading-72 { font-size: 36px; letter-spacing: -0.36px; }
 
-  /* Navigation: brand + green Contact on row 1, links on row 2 */
+  /* Navigation: logo + green Contact on row 1, right-aligned links on row 2 */
   .nav {
     flex-wrap: wrap;
     row-gap: 8px;
     padding: 20px var(--gutter) 12px;
   }
-  .brand__name { font-size: 28px; letter-spacing: 3.36px; }
+  .logo {
+    gap: 6.667px;
+    padding: 4.833px 6.444px;
+    border-radius: 5px;
+  }
+  .logo__mark { width: 38.333px; height: 38.333px; }
+  .logo__word { width: 75px; height: 18.75px; }
 
   .nav__cta {
     display: flex;
@@ -323,7 +375,7 @@ img { display: block; }
     line-height: 1.3;
   }
 
-  .nav__links { flex-basis: 100%; gap: 24px; }
+  .nav__links { flex-basis: 100%; justify-content: flex-end; gap: 24px; }
   .nav__action {
     height: 44px;
     padding: 0;
@@ -336,26 +388,37 @@ img { display: block; }
     gap: 28px;
     padding: 40px var(--gutter) 32px;
   }
+  .hero__top,
+  .hero__overview,
+  .hero__content { display: contents; }
+  .hero__logo { display: none; }
   .hero__headline {
+    flex: none;
     font-size: 44px;
     line-height: 48px; /* Figma 1.1, rendered at 48px per line */
     letter-spacing: -0.44px;
   }
-  .hero__overview,
-  .hero__content { display: contents; }
   .hero__description { order: 1; }
-  .hero__photo { order: 2; flex: none; width: 100%; height: 240px; }
-  .hero__photo-corner { width: 24px; height: 24px; }
+  .hero__photo {
+    order: 2;
+    flex: none;
+    width: 100%;
+    height: 240px;
+  }
   .btn-primary { order: 3; width: 100%; font-size: 14px; }
-  .hero__arrow { display: none; }
 
   /* Why choose us */
   .why { gap: 28px; padding: 56px var(--gutter); }
   .why__body { flex-direction: column; align-items: stretch; gap: 28px; }
-  .benefits { flex: none; gap: 4px; }
-  .benefit { height: 56px; padding: 0; font-size: 24px; }
-  .why__detail { flex: none; gap: 20px; }
-  .why__detail .body-large { font-size: 16px; line-height: 24px; }
+  .benefits { flex: none; height: auto; gap: 4px; }
+  .benefit {
+    height: 56px;
+    padding: 0;
+    font-size: 28px;
+  }
+  .why__detail { flex: none; }
+  .why__detail p { font-size: 16px; line-height: 24px; }
+  .why__detail p + p { margin-top: 20px; }
 
   /* Our services: every entry is a mint card */
   .services { gap: 28px; padding: 0 var(--gutter) 56px; }
@@ -368,6 +431,7 @@ img { display: block; }
     column-gap: 14px;
     row-gap: 16px;
     padding: 24px 16px;
+    border-radius: 8px;
     background: var(--mint);
   }
   .service__title {
@@ -385,7 +449,7 @@ img { display: block; }
     padding: 0 var(--gutter) 56px;
   }
   .about__narrative { flex: none; gap: 28px; }
-  .about__visual { flex: none; height: 280px; }
+  .about__visual { flex: none; height: 280px; border-radius: 0; }
   .about__visual img { height: 100%; }
 
   /* Contact */
@@ -396,14 +460,22 @@ img { display: block; }
     border-radius: 20px;
   }
   .contact__heading { font-size: 40px; letter-spacing: -0.4px; }
-  .contact__arrow img { width: 48px; height: 48px; }
   .contact__line {
-    height: auto;
-    font-size: 22px;
+    gap: 8px;
+    font-size: 20px;
     line-height: 1.4;
-    letter-spacing: -0.66px;
+    letter-spacing: -0.6px;
   }
-  .contact__line[href^="tel:"] { font-size: 26px; letter-spacing: -0.78px; }
+  .contact__icon { width: 32px; height: 32px; }
+  /* Icons scaled to the mobile frame's 30px icon frames */
+  .contact__icon img[src$="envelope.svg"] { width: 28.4px; height: 22.1px; }
+  .contact__icon img[src$="telephone-handset.svg"] { width: 28.1px; height: 28.1px; }
 
-  .footer { padding: 28px var(--gutter); }
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding: 28px var(--gutter);
+  }
+  .footer p { white-space: normal; }
 }
