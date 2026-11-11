@@ -45,6 +45,35 @@ img { display: block; }
 .crop { position: relative; display: block; overflow: hidden; flex-shrink: 0; }
 .crop > img { position: absolute; max-width: none; }
 
+/* ---------- Rolling text (green Contact buttons) ----------
+   js/main.js splits the label into letters. On hover each letter slides up
+   out of view while a copy (::after) rolls in from below, staggered 25ms
+   per letter. Hovering off rolls them back the same way. */
+.roll {
+  display: inline-flex;
+  overflow: hidden;
+  line-height: 1.3;
+}
+.roll__char {
+  position: relative;
+  display: inline-block;
+  white-space: pre;
+  transition: transform .5s cubic-bezier(.65, .05, .25, 1);
+  transition-delay: calc(var(--i) * 25ms);
+}
+.roll__char::after {
+  content: attr(data-char);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+[data-roll]:hover .roll__char,
+[data-roll]:focus-visible .roll__char { transform: translateY(-100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .roll__char { transition: none; }
+}
+
 /* ---------- Type styles ---------- */
 .body-large   { font-size: 18px; line-height: 28px; font-weight: 400; }
 .body-default { font-size: 16px; line-height: 24px; font-weight: 400; }
