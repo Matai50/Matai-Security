@@ -13,6 +13,11 @@
 
   --gutter: 80px;      /* sections below the hero */
   --nav-gutter: 88px;  /* navigation + footer */
+
+  /* Above a 1440px-wide window the content stops growing: the extra width
+     is split between the left and right margins. (% = the section's width) */
+  --content-max: 1440px;
+  --edge: max(0px, (100% - var(--content-max)) / 2);
   --font-body: "Inter", system-ui, sans-serif;
   --font-display: "Space Grotesk", system-ui, sans-serif;
 }
@@ -59,7 +64,7 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   gap: 44px;
-  padding: 112px;
+  padding: 112px calc(112px + var(--edge));
   background: var(--dark);
   overflow: hidden;
 }
@@ -127,7 +132,7 @@ img { display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px var(--nav-gutter);
+  padding: 26px calc(var(--nav-gutter) + var(--edge));
   background: var(--white);
 }
 
@@ -187,7 +192,7 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   gap: 36px;
-  padding: var(--gutter);
+  padding: var(--gutter) calc(var(--gutter) + var(--edge));
 }
 
 .why__body { display: flex; align-items: center; gap: 36px; }
@@ -222,7 +227,7 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   gap: 48px;
-  padding: 88px var(--gutter);
+  padding: 88px calc(var(--gutter) + var(--edge));
 }
 
 .service-index { display: flex; flex-direction: column; }
@@ -254,7 +259,7 @@ img { display: block; }
   display: flex;
   align-items: flex-start;
   gap: 80px;
-  padding: 24px var(--gutter) 96px;
+  padding: 24px calc(var(--gutter) + var(--edge)) 96px;
 }
 
 .about__narrative {
@@ -279,7 +284,7 @@ img { display: block; }
 }
 
 /* ---------- Contact ---------- */
-.contact-wrap { padding: 0 var(--gutter); scroll-margin-top: 24px; }
+.contact-wrap { padding: 0 calc(var(--gutter) + var(--edge)); scroll-margin-top: 24px; }
 
 .contact {
   display: flex;
@@ -331,7 +336,7 @@ img { display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 36px var(--nav-gutter);
+  padding: 36px calc(var(--nav-gutter) + var(--edge));
 }
 .footer p { font-size: 14px; line-height: 20px; white-space: nowrap; }
 
